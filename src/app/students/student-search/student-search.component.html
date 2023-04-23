@@ -1,0 +1,22 @@
+<div class="ui container">
+    <div class="ui icon input labeled">
+        <div class="ui label">
+            Search student here using student-ID
+        </div>
+        <input type="text" placeholder="Search student id..." (input)="onInput($any($event.target).value)">
+        <i class="search icon"></i>
+    </div>
+    <!-- <button class="ui secondary button">Search</button> -->
+</div>
+<br>
+<div *ngIf="searchResult" class="ui container">
+    <div class="ui list">
+        <h2 class="item">{{searchedStudent.fullName}}</h2>
+        <div class="item">Student ID : {{searchedStudent.studentId}}</div>
+        <div class="item">Date of Birth : {{searchedStudent.dateOfBirth}}</div>
+        <div class="item">Contact Number : {{searchedStudent.contactNumber}}</div>
+        <div class="item">NIC Number : {{searchedStudent.nicNumber}}</div>
+        <div class="item">Registered Courses : {{searchedStudent.registeredCoursesId}}</div>
+
+    </div>
+</div>
