@@ -8,7 +8,8 @@
         <a class="item" [ngClass]="{disabled:currentPage ===0}" (click)="currentPage = currentPage-1">Previous</a>
 
         <ng-container *ngFor="let course of studentList; let i = index;">
-            <a class="item" (click)="currentPage = i" [ngClass]="{active:i===currentPage}">{{i+1}}</a>
+            <a class="item" *ngIf="checkWindowIndex(i)" (click)="currentPage = i"
+                [ngClass]="{active:i===currentPage}">{{i+1}}</a>
         </ng-container>
 
         <a class="item" [ngClass]="{disabled:currentPage ===studentList.length-1}"
