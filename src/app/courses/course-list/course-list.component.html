@@ -1,104 +1,97 @@
-<div class="ui two column centered grid">
-    <div class="column">
-        <div class="ui buttons">
-            <button (click)="showAll=!showAll" class="ui button">Toggle All Courses</button>
+<div class="ui buttons">
+    <button (click)="showAll=!showAll" class="ui button">Toggle All Courses</button>
+</div>
+<app-divider></app-divider>
+<div *ngIf="showAll" (click)="show = false" class="ui pagination menu">
+
+    <a class="item" [ngClass]="{disabled:currentPage ===0}" (click)="currentPage = currentPage-1">Previous</a>
+
+    <ng-container *ngFor="let course of courseList; let i = index;">
+        <a class="item" (click)="currentPage = i" [ngClass]="{active:i===currentPage}">{{i+1}}</a>
+    </ng-container>
+
+    <a class="item" [ngClass]="{disabled:currentPage ===courseList.length-1}"
+        (click)="currentPage = currentPage+1">Next</a>
+
+</div>
+
+
+<div *ngIf="showAll">
+    <h3>
+        Course Name : {{courseList[currentPage].courseName}}
+    </h3>
+    <div class="ui list">
+        <div class="item">
+            Course Duration : {{courseList[currentPage].duration}} months
         </div>
-        <app-divider></app-divider>
-        <div *ngIf="showAll" (click)="show = false" class="ui pagination menu">
-
-            <a class="item" [ngClass]="{disabled:currentPage ===0}" (click)="currentPage = currentPage-1">Previous</a>
-
-            <ng-container *ngFor="let course of courseList; let i = index;">
-                <a class="item" (click)="currentPage = i" [ngClass]="{active:i===currentPage}">{{i+1}}</a>
-            </ng-container>
-
-            <a class="item" [ngClass]="{disabled:currentPage ===courseList.length-1}"
-                (click)="currentPage = currentPage+1">Next</a>
-
+        <div class="item">
+            Course Fee : Rs. {{courseList[currentPage].courseFee}}
         </div>
-
-        <app-divider></app-divider>
-
-        <div *ngIf="showAll">
-            <h3>
-                Course Name : {{courseList[currentPage].courseName}}
-            </h3>
-            <div class="ui list">
-                <div class="item">
-                    Course Duration : {{courseList[currentPage].duration}} months
-                </div>
-                <div class="item">
-                    Course Fee : Rs. {{courseList[currentPage].courseFee}}
-                </div>
-                <div class="item">
-                    Fulltime/Parttime : {{courseList[currentPage].type}}
-                </div>
-                <div class="item">
-                    Course ID : {{courseList[currentPage].id}}
-                </div>
-            </div>
-
-            <div class="ui button" [ngClass]="{'disabled': show }" (click)="onClick()">Update</div>
+        <div class="item">
+            Fulltime/Parttime : {{courseList[currentPage].type}}
         </div>
-
-        <br>
-
-        <div class="ui container" *ngIf="show&&showAll">
-            <h2 style="color: rgb(104, 73, 132); text-align: center;">Edit Course Details</h2>
-
-            <div class="ui large label">
-                Course Name : {{courseList[currentPage].courseName}}
-            </div>
-            <div class="ui large fluid input">
-                <input (input)="editCourseName($any($event.target).value)" type="text"
-                    placeholder="Enter new course name..">
-            </div>
-
-            <br>
-
-            <div class="ui large label">
-                Course Duration : {{courseList[currentPage].duration}} months
-            </div>
-            <div class="ui large fluid input">
-                <input (input)="editDuration($any($event.target).value)" type="text" placeholder="Enter new duration..">
-            </div>
-
-            <br>
-
-            <div class="ui large label">
-                Course Fee : Rs.{{courseList[currentPage].courseFee}}
-            </div>
-            <div class="ui large fluid input">
-                <input (input)="editFee($any($event.target).value)" type="text" placeholder="Enter new course fee..">
-            </div>
-
-            <br>
-
-            <div class="ui large label">
-                Course Type : {{courseList[currentPage].type}}
-            </div>
-            <div class="ui large fluid input">
-                <input (input)="editType($any($event.target).value)" type="text" placeholder="Enter new course type..">
-            </div>
-
-            <br>
-
-            <div class="ui large label">
-                Course ID : {{courseList[currentPage].id}}
-            </div>
-            <div class="ui large fluid input">
-                <input (input)="editID($any($event.target).value)" type="text" placeholder="Enter new course ID..">
-            </div>
-            <br>
-            <br>
-            <div class="actions">
-                <div class="ui three buttons">
-                    <button class="ui button red" (click)="deleteCourse(currentPage)">Delete</button>
-                    <button (click)=" updateValues(currentPage)" class="ui button green">Update</button>
-                    <button class="ui button blue" (click)="onClick()">Close</button>
-                </div>
-            </div>
+        <div class="item">
+            Course ID : {{courseList[currentPage].id}}
         </div>
+    </div>
 
+    <div class="ui button" [ngClass]="{'disabled': show }" (click)="onClick()">Update</div>
+</div>
+
+<br>
+
+<div class="ui container" *ngIf="show&&showAll">
+    <h2 style="color: rgb(104, 73, 132); text-align: center;">Edit Course Details</h2>
+
+    <div class="ui large label">
+        Course Name : {{courseList[currentPage].courseName}}
+    </div>
+    <div class="ui large fluid input">
+        <input (input)="editCourseName($any($event.target).value)" type="text" placeholder="Enter new course name..">
+    </div>
+
+    <br>
+
+    <div class="ui large label">
+        Course Duration : {{courseList[currentPage].duration}} months
+    </div>
+    <div class="ui large fluid input">
+        <input (input)="editDuration($any($event.target).value)" type="text" placeholder="Enter new duration..">
+    </div>
+
+    <br>
+
+    <div class="ui large label">
+        Course Fee : Rs.{{courseList[currentPage].courseFee}}
+    </div>
+    <div class="ui large fluid input">
+        <input (input)="editFee($any($event.target).value)" type="text" placeholder="Enter new course fee..">
+    </div>
+
+    <br>
+
+    <div class="ui large label">
+        Course Type : {{courseList[currentPage].type}}
+    </div>
+    <div class="ui large fluid input">
+        <input (input)="editType($any($event.target).value)" type="text" placeholder="Enter new course type..">
+    </div>
+
+    <br>
+
+    <div class="ui large label">
+        Course ID : {{courseList[currentPage].id}}
+    </div>
+    <div class="ui large fluid input">
+        <input (input)="editID($any($event.target).value)" type="text" placeholder="Enter new course ID..">
+    </div>
+    <br>
+    <br>
+    <div class="actions">
+        <div class="ui three buttons">
+            <button class="ui button red" (click)="deleteCourse(currentPage)">Delete</button>
+            <button (click)=" updateValues(currentPage)" class="ui button green">Update</button>
+            <button class="ui button blue" (click)="onClick()">Close</button>
+        </div>
     </div>
 </div>
