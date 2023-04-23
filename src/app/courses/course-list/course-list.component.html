@@ -1,6 +1,6 @@
 <div class="ui two column centered grid">
     <div class="column">
-        <div class="ui button">
+        <div class="ui buttons">
             <button (click)="showAll=!showAll" class="ui button">Toggle All Courses</button>
         </div>
         <app-divider></app-divider>
@@ -50,7 +50,8 @@
                 Course Name : {{courseList[currentPage].courseName}}
             </div>
             <div class="ui large fluid input">
-                <input type="text" placeholder="Enter new course name..">
+                <input (input)="editCourseName($any($event.target).value)" type="text"
+                    placeholder="Enter new course name..">
             </div>
 
             <br>
@@ -59,7 +60,7 @@
                 Course Duration : {{courseList[currentPage].duration}} months
             </div>
             <div class="ui large fluid input">
-                <input type="text" placeholder="Enter new duration..">
+                <input (input)="editDuration($any($event.target).value)" type="text" placeholder="Enter new duration..">
             </div>
 
             <br>
@@ -68,7 +69,7 @@
                 Course Fee : Rs.{{courseList[currentPage].courseFee}}
             </div>
             <div class="ui large fluid input">
-                <input type="text" placeholder="Enter new course fee..">
+                <input (input)="editFee($any($event.target).value)" type="text" placeholder="Enter new course fee..">
             </div>
 
             <br>
@@ -77,7 +78,7 @@
                 Course Type : {{courseList[currentPage].type}}
             </div>
             <div class="ui large fluid input">
-                <input type="text" placeholder="Enter new course type..">
+                <input (input)="editType($any($event.target).value)" type="text" placeholder="Enter new course type..">
             </div>
 
             <br>
@@ -86,14 +87,14 @@
                 Course ID : {{courseList[currentPage].id}}
             </div>
             <div class="ui large fluid input">
-                <input type="text" placeholder="Enter new course ID..">
+                <input (input)="editID($any($event.target).value)" type="text" placeholder="Enter new course ID..">
             </div>
             <br>
             <br>
             <div class="actions">
                 <div class="ui three buttons">
-                    <button class="ui button red">Delete</button>
-                    <button class="ui button green">Update</button>
+                    <button class="ui button red" (click)="deleteCourse(currentPage)">Delete</button>
+                    <button (click)=" updateValues(currentPage)" class="ui button green">Update</button>
                     <button class="ui button blue" (click)="onClick()">Close</button>
                 </div>
             </div>

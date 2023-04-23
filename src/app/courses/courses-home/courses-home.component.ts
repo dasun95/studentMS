@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./courses-home.component.css']
 })
 export class CoursesHomeComponent {
-
+  updateCourses(updatedCourses: any[]) {
+    this.courses = updatedCourses;
+  }
   courses = [
     {
       courseName: 'Fundamentals in Angular',

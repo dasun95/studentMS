@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class StudentsHomeComponent {
 
+  updateStudents(updatedStudents: any[]) {
+    this.students = updatedStudents;
+  }
+
   students = [
     {
       fullName: 'John Doe',

@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef,OnInit } from '@angular/core';
+import { Component, Input, Output, ElementRef,OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-student-list',
@@ -19,7 +19,12 @@ export class StudentListComponent implements OnInit{
 
 
   @Input() studentList: any;
+  @Output() updatedArray = new EventEmitter<any[]>();
   
+  update() {
+    this.updatedArray.emit(this.studentList);
+  }
+
   currentPage = 0;
 
   show = false;
@@ -31,5 +36,48 @@ export class StudentListComponent implements OnInit{
   
   onClick() {
     this.show = !this.show;
+  }
+
+  
+  newFullName='';
+  newDateOfBirth='';
+  newContactNumber='';
+  newNicNumber='';
+  newRegisteredCourses='';
+  newStudentId='';
+
+  editCourses(value:string) {
+    this.newRegisteredCourses = value;
+  }
+  editContact(value:string) {
+    this.newContactNumber = value;
+  }
+  editNic(value:string) {
+    this.newNicNumber = value;
+  }
+  editDateofBirth(value:string) {
+    this.newDateOfBirth = value;
+  }
+  editName(value: string) {
+    this.newFullName = value;
+  }
+  editStudentId(value: string) {
+    this.newStudentId = value;
+  }
+
+  updateValues(index: number) {
+    this.studentList[index] =
+    {
+      fullName: this.newFullName,
+      dateOfBirth: this.newDateOfBirth,
+      contactNumber: this.newContactNumber,
+      nicNumber: this.newNicNumber,
+      registeredCoursesId: this.newRegisteredCourses,
+      studentId: this.newStudentId
+    }
+  }
+
+  deleteStudent(index:number) {
+    this.studentList.splice(index, 1);
   }
 }

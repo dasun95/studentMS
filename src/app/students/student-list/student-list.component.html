@@ -1,6 +1,6 @@
 <div class="ui two column centered grid">
     <div class="column">
-        <div class="ui button">
+        <div class="ui buttons">
             <button (click)="showAll=!showAll" class="ui button">Check All Courses</button>
         </div>
         <app-divider></app-divider>
@@ -53,7 +53,7 @@
                 Student Name : {{studentList[currentPage].fullName}}
             </div>
             <div class="ui large fluid input">
-                <input type="text" placeholder="Enter new student name..">
+                <input (input)="editName($any($event.target).value)" type="text" placeholder="Enter new student name..">
             </div>
 
             <br>
@@ -62,7 +62,7 @@
                 NIC Number : {{studentList[currentPage].nicNumber}}
             </div>
             <div class="ui large fluid input">
-                <input type="text" placeholder="Enter new NIC number..">
+                <input (input)="editNic($any($event.target).value)" type="text" placeholder="Enter new NIC number..">
             </div>
 
             <br>
@@ -71,7 +71,8 @@
                 Date of birth : {{studentList[currentPage].dateOfBirth}}
             </div>
             <div class="ui large fluid input">
-                <input type="text" placeholder="Enter new date Of Birth..">
+                <input (input)="editDateofBirth($any($event.target).value)" type="text"
+                    placeholder="Enter new date Of Birth..">
             </div>
 
             <br>
@@ -80,7 +81,8 @@
                 Contact Number : {{studentList[currentPage].contactNumber}}
             </div>
             <div class="ui large fluid input">
-                <input type="text" placeholder="Enter new contact Number..">
+                <input (input)="editContact($any($event.target).value)" type="text"
+                    placeholder="Enter new contact Number..">
             </div>
 
             <br>
@@ -89,21 +91,23 @@
                 Registered Courses : {{studentList[currentPage].registeredCoursesId}}
             </div>
             <div class="ui large fluid input">
-                <input type="text" placeholder="Enter new registered courses..">
+                <input (input)="editCourses($any($event.target).value)" type="text"
+                    placeholder="Enter new registered courses Ids seperate them by commas">
             </div>
             <br>
             <div class="ui large label">
                 Student ID : {{studentList[currentPage].studentId}}
             </div>
             <div class="ui large fluid input">
-                <input type="text" placeholder="Enter new student ID..">
+                <input (input)="editStudentId($any($event.target).value)" type="text"
+                    placeholder="Enter new student ID..">
             </div>
             <br>
             <br>
             <div class="actions">
                 <div class="ui three buttons">
-                    <button class="ui button red">Delete</button>
-                    <button class="ui button green">Update</button>
+                    <button class="ui button red" (click)="deleteStudent(currentPage)">Delete</button>
+                    <button class="ui button green" (click)=" updateValues(currentPage)">Update</button>
                     <button class="ui button blue" (click)="onClick()">Close</button>
                 </div>
             </div>
