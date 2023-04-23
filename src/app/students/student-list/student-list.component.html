@@ -1,108 +1,115 @@
-<div class="ui buttons">
-    <button (click)="showAll=!showAll" class="ui button">Toggle All Students</button>
+<div class="ui container">
+    <div class="ui buttons">
+        <button (click)="showAll=!showAll" class="ui button">Toggle All Students</button>
+    </div>
+    <app-divider></app-divider>
+    <div *ngIf="showAll" (click)="show = false" class="ui pagination menu">
+
+        <a class="item" [ngClass]="{disabled:currentPage ===0}" (click)="currentPage = currentPage-1">Previous</a>
+
+        <ng-container *ngFor="let course of studentList; let i = index;">
+            <a class="item" (click)="currentPage = i" [ngClass]="{active:i===currentPage}">{{i+1}}</a>
+        </ng-container>
+
+        <a class="item" [ngClass]="{disabled:currentPage ===studentList.length-1}"
+            (click)="currentPage = currentPage+1">Next</a>
+
+    </div>
+
 </div>
-<app-divider></app-divider>
-<div *ngIf="showAll" (click)="show = false" class="ui pagination menu">
 
-    <a class="item" [ngClass]="{disabled:currentPage ===0}" (click)="currentPage = currentPage-1">Previous</a>
+<div class="ui container">
 
-    <ng-container *ngFor="let course of studentList; let i = index;">
-        <a class="item" (click)="currentPage = i" [ngClass]="{active:i===currentPage}">{{i+1}}</a>
-    </ng-container>
-
-    <a class="item" [ngClass]="{disabled:currentPage ===studentList.length-1}"
-        (click)="currentPage = currentPage+1">Next</a>
-
-</div>
-
-
-<div *ngIf="showAll">
-    <h3>
-        Student Name : {{studentList[currentPage].fullName}}
-    </h3>
-    <div class="ui list">
-        <div class="item">
-            Date of birth : {{studentList[currentPage].dateOfBirth}}
+    <div *ngIf="showAll">
+        <h3>
+            Student Name : {{studentList[currentPage].fullName}}
+        </h3>
+        <div class="ui list">
+            <div class="item">
+                Date of birth : {{studentList[currentPage].dateOfBirth}}
+            </div>
+            <div class="item">
+                NIC Number : {{studentList[currentPage].nicNumber}}
+            </div>
+            <div class="item">
+                Registered Courses : {{studentList[currentPage].registeredCoursesId}}
+            </div>
+            <div class="item">
+                Contact Number : {{studentList[currentPage].contactNumber}}
+            </div>
+            <div class="item">
+                Student ID : {{studentList[currentPage].studentId}}
+            </div>
         </div>
-        <div class="item">
+
+        <div class="ui button" [ngClass]="{'disabled': show }" (click)="onClick()">Update</div>
+    </div>
+
+    <br>
+
+    <div class="ui container" *ngIf="show&&showAll">
+        <h2 style="color: rgb(133, 101, 164); text-align: center;">Edit Student Details</h2>
+
+        <div class="ui large label">
+            Student Name : {{studentList[currentPage].fullName}}
+        </div>
+        <div class="ui large fluid input">
+            <input (input)="editName($any($event.target).value)" type="text" placeholder="Enter new student name..">
+        </div>
+
+        <br>
+
+        <div class="ui large label">
             NIC Number : {{studentList[currentPage].nicNumber}}
         </div>
-        <div class="item">
-            Registered Courses : {{studentList[currentPage].registeredCoursesId}}
+        <div class="ui large fluid input">
+            <input (input)="editNic($any($event.target).value)" type="text" placeholder="Enter new NIC number..">
         </div>
-        <div class="item">
+
+        <br>
+
+        <div class="ui large label">
+            Date of birth : {{studentList[currentPage].dateOfBirth}}
+        </div>
+        <div class="ui large fluid input">
+            <input (input)="editDateofBirth($any($event.target).value)" type="text"
+                placeholder="Enter new date Of Birth..">
+        </div>
+
+        <br>
+
+        <div class="ui large label">
             Contact Number : {{studentList[currentPage].contactNumber}}
         </div>
-        <div class="item">
+        <div class="ui large fluid input">
+            <input (input)="editContact($any($event.target).value)" type="text"
+                placeholder="Enter new contact Number..">
+        </div>
+
+        <br>
+
+        <div class="ui large label">
+            Registered Courses : {{studentList[currentPage].registeredCoursesId}}
+        </div>
+        <div class="ui large fluid input">
+            <input (input)="editCourses($any($event.target).value)" type="text"
+                placeholder="Enter new registered courses Ids seperate them by commas">
+        </div>
+        <br>
+        <div class="ui large label">
             Student ID : {{studentList[currentPage].studentId}}
         </div>
-    </div>
-
-    <div class="ui button" [ngClass]="{'disabled': show }" (click)="onClick()">Update</div>
-</div>
-
-<br>
-
-<div class="ui container" *ngIf="show&&showAll">
-    <h2 style="color: rgb(133, 101, 164); text-align: center;">Edit Student Details</h2>
-
-    <div class="ui large label">
-        Student Name : {{studentList[currentPage].fullName}}
-    </div>
-    <div class="ui large fluid input">
-        <input (input)="editName($any($event.target).value)" type="text" placeholder="Enter new student name..">
-    </div>
-
-    <br>
-
-    <div class="ui large label">
-        NIC Number : {{studentList[currentPage].nicNumber}}
-    </div>
-    <div class="ui large fluid input">
-        <input (input)="editNic($any($event.target).value)" type="text" placeholder="Enter new NIC number..">
-    </div>
-
-    <br>
-
-    <div class="ui large label">
-        Date of birth : {{studentList[currentPage].dateOfBirth}}
-    </div>
-    <div class="ui large fluid input">
-        <input (input)="editDateofBirth($any($event.target).value)" type="text" placeholder="Enter new date Of Birth..">
-    </div>
-
-    <br>
-
-    <div class="ui large label">
-        Contact Number : {{studentList[currentPage].contactNumber}}
-    </div>
-    <div class="ui large fluid input">
-        <input (input)="editContact($any($event.target).value)" type="text" placeholder="Enter new contact Number..">
-    </div>
-
-    <br>
-
-    <div class="ui large label">
-        Registered Courses : {{studentList[currentPage].registeredCoursesId}}
-    </div>
-    <div class="ui large fluid input">
-        <input (input)="editCourses($any($event.target).value)" type="text"
-            placeholder="Enter new registered courses Ids seperate them by commas">
-    </div>
-    <br>
-    <div class="ui large label">
-        Student ID : {{studentList[currentPage].studentId}}
-    </div>
-    <div class="ui large fluid input">
-        <input (input)="editStudentId($any($event.target).value)" type="text" placeholder="Enter new student ID..">
-    </div>
-    <br>
-    <br>
-    <div class="actions">
-        <div class="ui three buttons">
-            <button class="ui button red" (click)="deleteStudent(currentPage)">Delete</button>
-            <button class="ui button green" (click)=" updateValues(currentPage)">Update</button>
-            <button class="ui button blue" (click)="onClick()">Close</button>
+        <div class="ui large fluid input">
+            <input (input)="editStudentId($any($event.target).value)" type="text" placeholder="Enter new student ID..">
+        </div>
+        <br>
+        <br>
+        <div class="actions">
+            <div class="ui three buttons">
+                <button class="ui button red" (click)="deleteStudent(currentPage)">Delete</button>
+                <button class="ui button green" (click)=" updateValues(currentPage)">Update</button>
+                <button class="ui button blue" (click)="onClick()">Close</button>
+            </div>
         </div>
     </div>
 </div>

@@ -1,63 +1,65 @@
-<button class="ui button" [ngClass]="{'disabled':newStudent}" (click)="newStudent = true">Add New Student</button>
+<div class="ui container">
+    <button class="ui button" [ngClass]="{'disabled':newStudent}" (click)="newStudent = true">Add New Student</button>
 
-<div class="ui divider"></div>
+    <div class="ui divider"></div>
 
-<div *ngIf="newStudent">
-    <div class="ui segments">
-        <div class="ui segment" style="background-color: aquamarine;">
-            <p>Full Name</p>
-        </div>
-        <div class="ui secondary segment">
-            <div class="ui fluid input">
-                <input type="text">
+    <div *ngIf="newStudent">
+        <div class="ui segments">
+            <div class="ui segment" style="background-color: aquamarine;">
+                <p>Full Name</p>
+            </div>
+            <div class="ui secondary segment">
+                <div class="ui fluid input">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="ui segment" style="background-color: aquamarine;">
+                <p>Date of Birth</p>
+            </div>
+            <div class="ui secondary segment">
+                <div class="ui input">
+                    <input type="date">
+                </div>
+            </div>
+            <div class="ui segment" style="background-color: aquamarine;">
+                <p>Contact Number</p>
+            </div>
+            <div class="ui secondary segment">
+                <div class="ui input">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="ui segment" style="background-color: aquamarine;">
+                <p>NIC Number</p>
+            </div>
+            <div class="ui secondary segment">
+                <div class="ui input">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="ui segment" style="background-color: aquamarine;">
+                <p>Registered Courses IDs</p>
+            </div>
+            <div class="ui secondary segment">
+                <div *ngFor="let course of courses" class="ui checkbox">
+                    <input type="checkbox">
+                    <label>{{course.id}} : {{course.courseName}}</label>
+                    <div class="ui divider"></div>
+                </div>
+            </div>
+            <div class="ui segment" style="background-color: aquamarine;">
+                <p>Student ID</p>
+            </div>
+            <div class="ui secondary segment">
+                <div class="ui input">
+                    <input type="text">
+                </div>
             </div>
         </div>
-        <div class="ui segment" style="background-color: aquamarine;">
-            <p>Date of Birth</p>
-        </div>
-        <div class="ui secondary segment">
-            <div class="ui input">
-                <input type="date">
-            </div>
-        </div>
-        <div class="ui segment" style="background-color: aquamarine;">
-            <p>Contact Number</p>
-        </div>
-        <div class="ui secondary segment">
-            <div class="ui input">
-                <input type="text">
-            </div>
-        </div>
-        <div class="ui segment" style="background-color: aquamarine;">
-            <p>NIC Number</p>
-        </div>
-        <div class="ui secondary segment">
-            <div class="ui input">
-                <input type="text">
-            </div>
-        </div>
-        <div class="ui segment" style="background-color: aquamarine;">
-            <p>Registered Courses IDs</p>
-        </div>
-        <div class="ui secondary segment">
-            <div *ngFor="let course of courses" class="ui checkbox">
-                <input type="checkbox">
-                <label>{{course.id}} : {{course.courseName}}</label>
-                <div class="ui divider"></div>
-            </div>
-        </div>
-        <div class="ui segment" style="background-color: aquamarine;">
-            <p>Student ID</p>
-        </div>
-        <div class="ui secondary segment">
-            <div class="ui input">
-                <input type="text">
-            </div>
-        </div>
-    </div>
 
-    <div class="ui two buttons">
-        <button (click)="newStudent = false" class="ui button green">SAVE</button>
-        <button (click)="newStudent = false" class="ui button red">DISCARD</button>
+        <div class="ui two buttons">
+            <button (click)="newStudent = false" class="ui button green">SAVE</button>
+            <button (click)="newStudent = false" class="ui button red">DISCARD</button>
+        </div>
     </div>
 </div>
