@@ -1,10 +1,9 @@
 <div class="ui container">
-    <div class="ui icon input labeled">
-        <div class="ui label">
-            Search student here using student-ID
-        </div>
+    <label>
+        Search student here using student-ID
+    </label>
+    <div class="ui input focus">
         <input type="text" placeholder="Search student id..." (input)="onInput($any($event.target).value)">
-        <i class="search icon"></i>
     </div>
     <!-- <button class="ui secondary button">Search</button> -->
 </div>
