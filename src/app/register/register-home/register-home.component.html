@@ -1,11 +1,14 @@
 <div class="ui container">
-    <button class="ui button" [ngClass]="{'disabled':newStudent}" (click)="newStudent = true">Add New Student</button>
+    <label class="ui right pointing label grey">REGISTER NEW STUDENT</label>
+    <button class="ui button teal" [ngClass]="{'disabled':newStudent}" (click)="newStudent = true">Add New
+        Student</button>
 
     <div class="ui divider"></div>
 
-    <div *ngIf="newStudent">
+
+    <div class="card" *ngIf="newStudent">
         <div class="ui segments">
-            <div class="ui segment" style="background-color: aquamarine;">
+            <div class="ui segment">
                 <p>Full Name</p>
             </div>
             <div class="ui secondary segment">
@@ -13,7 +16,7 @@
                     <input type="text">
                 </div>
             </div>
-            <div class="ui segment" style="background-color: aquamarine;">
+            <div class="ui segment">
                 <p>Date of Birth</p>
             </div>
             <div class="ui secondary segment">
@@ -21,7 +24,7 @@
                     <input type="date">
                 </div>
             </div>
-            <div class="ui segment" style="background-color: aquamarine;">
+            <div class="ui segment">
                 <p>Contact Number</p>
             </div>
             <div class="ui secondary segment">
@@ -29,7 +32,7 @@
                     <input type="text">
                 </div>
             </div>
-            <div class="ui segment" style="background-color: aquamarine;">
+            <div class="ui segment">
                 <p>NIC Number</p>
             </div>
             <div class="ui secondary segment">
@@ -37,7 +40,7 @@
                     <input type="text">
                 </div>
             </div>
-            <div class="ui segment" style="background-color: aquamarine;">
+            <div class="ui segment">
                 <p>Registered Courses IDs</p>
             </div>
             <div class="ui secondary segment">
@@ -47,7 +50,7 @@
                     <div class="ui divider"></div>
                 </div>
             </div>
-            <div class="ui segment" style="background-color: aquamarine;">
+            <div class="ui segment">
                 <p>Student ID</p>
             </div>
             <div class="ui secondary segment">
@@ -57,9 +60,11 @@
             </div>
         </div>
 
-        <div class="ui two buttons">
-            <button (click)="newStudent = false" class="ui button green">SAVE</button>
+
+        <div style="display: flex; justify-content: space-around;">
+            <button style="width: 10vw;" (click)="newStudent = false" class="ui button green">SAVE</button>
             <button (click)="newStudent = false" class="ui button red">DISCARD</button>
+
         </div>
     </div>
 </div>

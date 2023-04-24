@@ -1,21 +1,70 @@
-<div class="ui container">
-    <label>
-        Search student here using student-ID
-    </label>
-    <div class="ui input focus">
-        <input type="text" placeholder="Search student id..." (input)="onInput($any($event.target).value)">
+<div class="card">
+    <div class="ui huge label">
+        Search Student-ID
     </div>
-    <!-- <button class="ui secondary button">Search</button> -->
-</div>
-<br>
-<div *ngIf="searchResult" class="ui container">
-    <div class="ui list">
-        <h2 class="item">{{searchedStudent.fullName}}</h2>
-        <div class="item">Student ID : {{searchedStudent.studentId}}</div>
-        <div class="item">Date of Birth : {{searchedStudent.dateOfBirth}}</div>
-        <div class="item">Contact Number : {{searchedStudent.contactNumber}}</div>
-        <div class="item">NIC Number : {{searchedStudent.nicNumber}}</div>
-        <div class="item">Registered Courses : {{searchedStudent.registeredCoursesId}}</div>
+    <div class="ui icon input">
+        <input type="text" placeholder="Search student id..." (input)="onInput($any($event.target).value)">
+        <i class="search icon"></i>
+    </div>
 
+    <div *ngIf="searchResult" class="ui container">
+        <div class="card"
+            style="padding-left: 30vh; padding-right: 30vh; color: aliceblue; background-color: rgb(75, 79, 99);">
+
+            <table class="ui celled striped table">
+                <thead>
+                    <tr>
+                        <th colspan="3" style="text-align: center; text-transform: uppercase;">
+                            {{searchedStudent.fullName}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i class="folder icon"></i>
+                            Student ID
+                        </td>
+                        <td>{{searchedStudent.studentId}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="folder icon"></i> Date of Birth
+                        </td>
+                        <td>{{searchedStudent.dateOfBirth}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="folder icon"></i> Contact Number
+                        </td>
+                        <td>{{searchedStudent.contactNumber}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="folder icon"></i> NIC Number
+                        </td>
+                        <td>{{searchedStudent.nicNumber}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="folder icon"></i> Registered Courses
+                        </td>
+                        <td>{{searchedStudent.registeredCoursesId}}</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+
+
+
+
+        </div>
     </div>
 </div>

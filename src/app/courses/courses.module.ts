@@ -5,7 +5,6 @@ import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesHomeComponent } from './courses-home/courses-home.component';
 import { CourseSearchComponent } from './course-search/course-search.component';
 import { CourseListComponent } from './course-list/course-list.component';
-import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 
 
@@ -18,7 +17,6 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     CoursesRoutingModule,
-    SharedModule,
     FormsModule
   ],
   exports: [

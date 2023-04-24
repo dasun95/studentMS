@@ -1,20 +1,66 @@
-<div class="ui container">
+<div class="card">
 
-    <label for="">
-        Search course here using course-ID
-    </label>
-    <div class="ui input focus">
-        <input type="text" placeholder="Search course id..." (input)="onInput($any($event.target).value)">
+    <div class="ui huge label">
+        Search Course-ID
     </div>
-    <!-- <button class="ui secondary button">Search</button> -->
+    <div class="ui icon input">
+        <input type="text" placeholder="Search course id..." (input)="onInput($any($event.target).value)">
+        <i class="search icon"></i>
+    </div>
 
-    <br>
     <div *ngIf="searchResult" class="ui container">
-        <div class="ui list">
-            <h2 class="item">{{searchedCourse.courseName}}</h2>
-            <div class="item">Course id : {{searchedCourse.id}}</div>
-            <div class="item">Duration : {{searchedCourse.duration}} months</div>
-            <div class="item">Course Fee : Rs. {{searchedCourse.courseFee}}</div>
-            <div class="item">Fulltime/Parttime : {{searchedCourse.type}}</div>
+        <div class="card"
+            style="padding-left: 30vh; padding-right: 30vh; color: aliceblue; background-color: rgb(75, 79, 99);">
+            <table class="ui celled striped table">
+                <thead>
+                    <tr>
+                        <th colspan="3" style="text-align: center; text-transform: uppercase;">
+                            {{searchedCourse.courseName}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i class="folder icon"></i>
+                            Course ID
+                        </td>
+                        <td>{{searchedCourse.id}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="folder icon"></i> Duration
+                        </td>
+                        <td>{{searchedCourse.duration}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="folder icon"></i> Course Fee
+                        </td>
+                        <td>{{searchedCourse.courseFee}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="folder icon"></i> Course Type
+                        </td>
+                        <td>{{searchedCourse.type}}</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+
+
+
+<!-- <h2 class="item">{{searchedStudent.fullName}}</h2>
+<div class="item">Student ID : {{searchedStudent.studentId}}</div>
+<div class="item">Date of Birth : {{searchedStudent.dateOfBirth}}</div>
+<div class="item">Contact Number : {{searchedStudent.contactNumber}}</div>
+<div class="item">NIC Number : {{searchedStudent.nicNumber}}</div>
+<div class="item">Registered Courses : {{searchedStudent.registeredCoursesId}}</div> -->

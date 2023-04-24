@@ -5,7 +5,6 @@ import { StudentsRoutingModule } from './students-routing.module';
 import { StudentsHomeComponent } from './students-home/students-home.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentSearchComponent } from './student-search/student-search.component';
-import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +16,6 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     StudentsRoutingModule,
-    SharedModule
   ],
   exports: []
 })
