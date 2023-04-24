@@ -6,64 +6,76 @@
     <div class="ui divider"></div>
 
 
+
     <div class="card" *ngIf="newStudent">
-        <div class="ui segments">
-            <div class="ui segment">
-                <p>Full Name</p>
-            </div>
-            <div class="ui secondary segment">
-                <div class="ui fluid input">
-                    <input type="text">
-                </div>
-            </div>
-            <div class="ui segment">
-                <p>Date of Birth</p>
-            </div>
-            <div class="ui secondary segment">
-                <div class="ui input">
-                    <input type="date">
-                </div>
-            </div>
-            <div class="ui segment">
-                <p>Contact Number</p>
-            </div>
-            <div class="ui secondary segment">
-                <div class="ui input">
-                    <input type="text">
-                </div>
-            </div>
-            <div class="ui segment">
-                <p>NIC Number</p>
-            </div>
-            <div class="ui secondary segment">
-                <div class="ui input">
-                    <input type="text">
-                </div>
-            </div>
-            <div class="ui segment">
-                <p>Registered Courses IDs</p>
-            </div>
-            <div class="ui secondary segment">
-                <div *ngFor="let course of courses" class="ui checkbox">
-                    <input type="checkbox">
-                    <label>{{course.id}} : {{course.courseName}}</label>
-                    <div class="ui divider"></div>
-                </div>
-            </div>
-            <div class="ui segment">
-                <p>Student ID</p>
-            </div>
-            <div class="ui secondary segment">
-                <div class="ui input">
-                    <input type="text">
-                </div>
+        <div>
+            <p>Full Name</p>
+        </div>
+        <div>
+            <div class="ui fluid input">
+                <input type="text">
             </div>
         </div>
+        <br>
+        <br>
+        <div>
+            <p>Date of Birth</p>
+        </div>
+        <div>
+            <div class="ui fluid input">
+                <input type="date">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div>
+            <p>Contact Number</p>
+        </div>
+        <div>
+            <div class="ui fluid input">
+                <input type="text">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div>
+            <p>NIC Number</p>
+        </div>
+        <div>
+            <div class="ui fluid input">
+                <input type="text">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div>
+            <p>Registered Courses IDs</p>
+        </div>
+        <div>
+            <div *ngFor="let course of courses" class="ui checkbox">
+                <input type="checkbox">
+                <label>{{course.id}} : {{course.courseName}}</label>
+                <div class="ui divider"></div>
+            </div>
+        </div>
+        <div>
+            <p>Student ID</p>
+        </div>
+        <div>
+            <div class="ui fluid input">
+                <input type="text">
+            </div>
+        </div>
+        <br>
+        <br>
+
 
 
         <div style="display: flex; justify-content: space-around;">
-            <button style="width: 10vw;" (click)="newStudent = false" class="ui button green">SAVE</button>
-            <button (click)="newStudent = false" class="ui button red">DISCARD</button>
+            <button style="background: linear-gradient(to bottom, #2a6199, rgb(87, 99, 140))"
+                (click)="newStudent = false" class="ui button green">SAVE</button>
+            <button style="background: linear-gradient(to bottom, #106c4c, rgb(87, 140, 116))"
+                (click)="newStudent = false" class="ui button red">DISCARD</button>
 
         </div>
     </div>
