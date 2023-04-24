@@ -31,7 +31,7 @@ export class StudentListComponent implements OnInit{
   showAll = false;
 
   checkWindowIndex(index: number) {
-    return Math.abs(this.currentPage-index)<3;
+    return Math.abs(this.currentPage-index)<2;
   }
   
   onClick() {
