@@ -65,62 +65,62 @@
         <div class="ui container card" *ngIf="show" style="background-color: rgb(87, 99, 140);width: 75vw;">
             <h2 style="color: rgb(255, 255, 255); text-align: center;">Edit Student Details</h2>
 
-            <div class="ui large label">
+            <div class="ui  label">
                 Student Name : {{studentList[currentPage].fullName}}
             </div>
-            <div class="ui large fluid input">
+            <div class="ui  fluid input">
                 <input (input)="editName($any($event.target).value)" type="text" placeholder="Enter new student name..">
             </div>
 
             <br>
 
-            <div class="ui large label">
+            <div class="ui  label">
                 NIC Number : {{studentList[currentPage].nicNumber}}
             </div>
-            <div class="ui large fluid input">
+            <div class="ui  fluid input">
                 <input (input)="editNic($any($event.target).value)" type="text" placeholder="Enter new NIC number..">
             </div>
 
             <br>
 
-            <div class="ui large label">
+            <div class="ui  label">
                 Date of birth : {{studentList[currentPage].dateOfBirth}}
             </div>
-            <div class="ui large fluid input">
+            <div class="ui  fluid input">
                 <input (input)="editDateofBirth($any($event.target).value)" type="text"
                     placeholder="Enter new date Of Birth..">
             </div>
 
             <br>
 
-            <div class="ui large label">
+            <div class="ui  label">
                 Contact Number : {{studentList[currentPage].contactNumber}}
             </div>
-            <div class="ui large fluid input">
+            <div class="ui  fluid input">
                 <input (input)="editContact($any($event.target).value)" type="text"
                     placeholder="Enter new contact Number..">
             </div>
 
             <br>
 
-            <div class="ui large label">
+            <div class="ui  label">
                 Registered Courses : {{studentList[currentPage].registeredCoursesId}}
             </div>
-            <div class="ui large fluid input">
+            <div class="ui  fluid input">
                 <input (input)="editCourses($any($event.target).value)" type="text"
                     placeholder="Enter new registered courses Ids seperate them by commas">
             </div>
             <br>
-            <div class="ui large label">
+            <div class="ui  label">
                 Student ID : {{studentList[currentPage].studentId}}
             </div>
-            <div class="ui large fluid input">
+            <div class="ui  fluid input">
                 <input (input)="editStudentId($any($event.target).value)" type="text"
                     placeholder="Enter new student ID..">
             </div>
             <br>
             <br>
-            <div class="actions">
+            <div style="display: flex; justify-content: space-around;">
                 <div class="ui buttons">
                     <button style="margin: 5vh;" class="ui button red"
                         (click)="deleteStudent(currentPage)">Delete</button>

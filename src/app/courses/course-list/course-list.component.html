@@ -57,35 +57,35 @@
         <div class="ui container card" *ngIf="show" style="background-color: rgb(87, 99, 140);width: 75vw;">
             <h2 style="color: rgb(255, 255, 255); text-align: center;">Edit Course Details</h2>
 
-            <div class="ui large label teal">
+            <div class="ui  label teal">
                 Course Name : {{courseList[currentPage].courseName}}
             </div>
-            <div class="ui large fluid input">
+            <div class="ui  fluid input">
                 <input (input)="editCourseName($any($event.target).value)" type="text"
                     placeholder="Enter new course name..">
             </div>
 
             <br>
 
-            <div class="ui large label teal">
+            <div class="ui  label teal">
                 Course Duration : {{courseList[currentPage].duration}} months
             </div>
-            <div class="ui large fluid input">
+            <div class="ui  fluid input">
                 <input (input)="editDuration($any($event.target).value)" type="text" placeholder="Enter new duration..">
             </div>
 
             <br>
 
-            <div class="ui large label teal">
+            <div class="ui  label teal">
                 Course Fee : Rs.{{courseList[currentPage].courseFee}}
             </div>
-            <div class="ui large fluid input">
+            <div class="ui  fluid input">
                 <input (input)="editFee($any($event.target).value)" type="text" placeholder="Enter new course fee..">
             </div>
 
             <br>
 
-            <div class="ui large label teal">
+            <div class="ui  label teal">
                 Course Type : {{courseList[currentPage].type}}
             </div>
 
@@ -97,22 +97,20 @@
             <br>
             <br>
 
-            <div class="ui large label teal">
+            <div class="ui  label teal">
                 Course ID : {{courseList[currentPage].id}}
             </div>
-            <div class="ui large fluid input">
+            <div class="ui  fluid input">
                 <input (input)="editID($any($event.target).value)" type="text" placeholder="Enter new course ID..">
             </div>
             <br>
             <br>
-            <div class="actions">
-                <div class="ui buttons">
-                    <button style="margin: 5vh;" class="ui button red"
-                        (click)="deleteCourse(currentPage)">Delete</button>
-                    <button style="margin: 5vh;" (click)=" updateValues(currentPage)"
-                        class="ui button blue">Update</button>
-                    <button style="margin: 5vh;" class="ui button grey" (click)="onClick()">Close</button>
-                </div>
+            <div style="display: flex; justify-content: space-around;">
+
+                <button style="margin: 5vh;" class="ui button red" (click)="deleteCourse(currentPage)">Delete</button>
+                <button style="margin: 5vh;" (click)=" updateValues(currentPage)" class="ui button blue">Update</button>
+                <button style="margin: 5vh;" class="ui button grey" (click)="onClick()">Close</button>
+
             </div>
         </div>
 
