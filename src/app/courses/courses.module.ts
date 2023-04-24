@@ -6,6 +6,7 @@ import { CoursesHomeComponent } from './courses-home/courses-home.component';
 import { CourseSearchComponent } from './course-search/course-search.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,8 +18,11 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     CoursesRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
-  exports: []
+  exports: [
+    CoursesHomeComponent
+  ]
 })
 export class CoursesModule { }

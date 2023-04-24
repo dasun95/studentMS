@@ -1,4 +1,6 @@
-import { Component, Input,Output, ElementRef, OnInit,EventEmitter } from '@angular/core';
+import { Component, Input, Output, ElementRef, OnInit, EventEmitter, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-course-list',
@@ -44,9 +46,10 @@ export class CourseListComponent implements OnInit {
   newCourseFee='';
   newCourseType='';
 
-  editType(value:string) {
-    this.newCourseType = value;
-  }
+  // this.newCourseType = value;
+  // editType(value:string) {
+  //   this.newCourseType = value;
+  // }
   editDuration(value:string) {
     this.newCourseDuration = value;
   }

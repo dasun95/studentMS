@@ -78,9 +78,11 @@
         <div class="ui large label">
             Course Type : {{courseList[currentPage].type}}
         </div>
-        <div class="ui large fluid input">
-            <input (input)="editType($any($event.target).value)" type="text" placeholder="Enter new course type..">
-        </div>
+
+        <select [(ngModel)]="newCourseType" class="ui dropdown">
+            <option value="Full-Time">Full-Time</option>
+            <option value="Part-Time">Part-Time</option>
+        </select>
 
         <br>
 
